@@ -2,6 +2,10 @@
 
 https://bruceravel.github.io/demeter/[Athena] から Export される .nor, .chi, .chir ファイルを Igor Pro にインポートするためのマクロです．このマクロは無保証で提供，配布されます．このマクロを利用することで受けたすべての影響について使用者が責任を負うものとします．
 
+== ダウンロード
+
+https://github.com/roentgenium/igorpro_xas_macros/releases からダウンロードしてください．
+
 == 主な機能
 
 * Athena の出力ファイル形式である .nor, .chi, .chir ファイルを読み込む
