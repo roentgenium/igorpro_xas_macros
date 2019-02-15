@@ -1,0 +1,46 @@
+.. author: ASAKURA, Hiroyuki (asakura AT moleng DOT kyoto-u DOT ac DOT jp)
+.. version: 0.1
+
+====
+概要
+====
+
+`Athena <https://bruceravel.github.io/demeter/>`_ から Export される .nor, .chi, .chir ファイルを Igor Pro にインポートするためのマクロです．
+
+.. warning::
+   このマクロ群は無保証で提供、配布されます。このマクロを利用することで受けたすべての影響について使用者が責任を負うものとします。
+
+主な機能
+========
+
+* Athena の出力ファイル形式である .nor, .chi, .chir ファイルを読み込む
+
+使い方
+-------
+
+1. 展開してでてきたXAFSフォルダを `%USERPROFILE%\Documents\WaveMetrics\Igor Pro 8 User Files\Igor Procedures` にコピーして Igor Pro を起動してください．
+2. メニューバーに `XAFS` が現れます．
+
+XANESファイルの読み込み
+"""""""""""""""""""""""
+
+`XAFS > Load Athena files > Load .nor file` をクリックすると，ファイル選択ウィンドウが出てきます．読み込みたい `.nor` ファイルを選択してください．読み込んだファイル名が `example.nor` の場合，
+
+x_example
+   XANES スペクトルの x 軸（X線のエネルギー）の値を含んだ一次元 wave
+y_example
+   バックグラウンド，規格化および「フラット化」が施された XANES スペクトルの y 軸（吸収強度）の値を含んだ一次元 wave
+
+の2つが読み込まれます．
+
+EXAFSファイルの読み込み
+"""""""""""""""""""""""
+
+`XAFS > Load Athena files > Load .chik file` をクリックすると，ファイル選択ウィンドウが出てきます．読み込みたい `.chik` ファイルを選択してください．読み込んだファイル名が `example.chik` の場合，
+
+x_ED_example
+   抽出された EXAFS 振動の x軸（波数）の値を含んだ一次元 wave
+y_ED_example
+   抽出された EXAFS 振動 (k3 の重み付き) の y軸（χ）の値を含んだ一次元 wave
+
+が読み込まれます．

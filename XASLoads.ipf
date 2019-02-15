@@ -75,7 +75,7 @@ Function/S ListFilesOfnor(dataFolderStr)
 
 	files= IndexedFile($dataFolderStr,-1,fileType)
 
-	return files
+	return SortList(files, ";", 16)
 End
 
 //
@@ -141,7 +141,7 @@ Function/S ListFilesOfchik(dataFolderStr)
 
 	files= IndexedFile($dataFolderStr,-1,fileType)
 
-	return files
+	return SortList(files, ";", 16)
 End
 
 //
@@ -209,5 +209,5 @@ Function/S ListFilesOfchir(dataFolderStr)
 
 	files= IndexedFile($dataFolderStr,-1,fileType)
 
-	return files
+	return SortList(files, ";", 16)
 End
