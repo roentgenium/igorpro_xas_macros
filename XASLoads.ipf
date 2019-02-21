@@ -9,7 +9,8 @@ Function/S ExtractFilename(filename)
 	String fn
 	fn = ReplaceString(".q", filename, "")
 	filename = ReplaceString(".dat", fn, "")	
-	return ParseFilePath(3, filename, ":", 0, 0)
+	fn = ReplaceString("-", filename, "_")	
+	return ParseFilePath(3, fn, ":", 0, 0)
 End
 
 //
@@ -74,6 +75,7 @@ Function/S ListFilesOfnor(dataFolderStr)
 	String fileType=".nor"
 
 	files= IndexedFile($dataFolderStr,-1,fileType)
+	files= SortList(files, ";", 16)
 
 	return SortList(files, ";", 16)
 End
@@ -140,6 +142,7 @@ Function/S ListFilesOfchik(dataFolderStr)
 	String fileType=".chik"
 
 	files= IndexedFile($dataFolderStr,-1,fileType)
+	files= SortList(files, ";", 16)
 
 	return SortList(files, ";", 16)
 End
@@ -208,6 +211,7 @@ Function/S ListFilesOfchir(dataFolderStr)
 	String fileType=".chir"
 
 	files= IndexedFile($dataFolderStr,-1,fileType)
+	files= SortList(files, ";", 16)
 
 	return SortList(files, ";", 16)
 End

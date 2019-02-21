@@ -27,5 +27,11 @@ Menu "XAFS"
 		// "Load .rmag files",/Q, LoadAllrmagSpectraInFolder()
 		
 	End
+	
+	Submenu "Load FDMNES files"
+	
+		"Load conv file",/Q, LoadFDMNESfile()
+	
+	End
 
 End
