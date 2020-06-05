@@ -215,3 +215,71 @@ Function/S ListFilesOfchir(dataFolderStr)
 
 	return SortList(files, ";", 16)
 End
+
+//
+// .xmu
+//
+
+Proc Loadxmufile()
+	PauseUpdate; Silent 1
+	
+	DoWindow /F XASImportConfigPanel
+	if (V_flag == 1)
+		ControlInfo /W=XASImportConfigPanel MakeGraphAutomatically
+		if (V_Value == 1)
+			Display
+		endif
+	endif
+
+	LoadWave/Q/G/N/W
+	String/G filename = ExtractFilename(S_filename)
+	AfterLoadingxmuFile()
+End
+
+Proc AfterLoadingxmuFile()
+	KillWaves bkg, pre_edge, post_edge, der, secW, i0, chie
+	Duplicate/O eW, $("x_"+filename); KillWaves eW
+	Duplicate/O xmu, $("y_"+filename); KillWaves xmu
+
+	DoWindow /F XASImportConfigPanel
+	if (V_flag == 1)
+		ControlInfo /W=XASImportConfigPanel MakeGraphAutomatically
+		if (V_Value == 1)
+		AppendToGraph $("y_"+filename) vs $("x_"+filename)
+		endif
+	endif
+End
+
+Proc LoadAllxmuSpectraInFolder()
+	PauseUpdate; Silent 1
+	
+	Variable dataFolder, fileType
+	String cmd="LoadWave/Q/G/N/W/P=dataFolder \"%s\"; "
+	cmd+="String/G filename=ExtractFilename(S_filename); "
+	cmd+="AfterLoadingxmuFile()"
+	
+	NewPath/Q/O/M="Select the folder of your xmu files to import" dataFolder
+	String files= ListFilesOfxmu("dataFolder") 
+	
+	DoWindow /F XASImportConfigPanel
+	if (V_flag == 1)
+		ControlInfo /W=XASImportConfigPanel MakeGraphAutomatically
+		if (V_Value == 1)
+			Display
+		endif
+	endif
+	
+	ExecuteCmdOnList(cmd,files)
+End
+
+Function/S ListFilesOfxmu(dataFolderStr)
+	String dataFolderStr
+	String files=""
+	String fileType=".xmu"
+
+	files= IndexedFile($dataFolderStr,-1,fileType)
+	files= SortList(files, ";", 16)
+
+	return SortList(files, ";", 16)
+End
+

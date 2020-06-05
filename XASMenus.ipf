@@ -9,6 +9,7 @@ Menu "XAFS"
 	Submenu "Load Athena files"
 	
 		"Load .nor file",/Q, Loadnorfile()
+		"Load .xmu file",/Q, Loadxmufile()
 		"Load .chik file",/Q, Loadchikfile()
 		"Load .chir file",/Q, Loadchirfile()
 		
@@ -18,6 +19,7 @@ Menu "XAFS"
 		// "Load .rmag file",/Q, Loadrmagfile()
 		
 		"Load .nor files",/Q, LoadAllnorSpectraInFolder()
+		"Load .xmu files",/Q, LoadAllxmuSpectraInFolder()
 		"Load .chik files",/Q, LoadAllchikSpectraInFolder()
 		"Load .chir files",/Q, LoadAllchirSpectraInFolder()
 		
