@@ -1,38 +1,33 @@
-= 概要
+= Summary
 
-https://bruceravel.github.io/demeter/[Athena] から Export される .nor, .chi, .chir ファイルを Igor Pro にインポートするためのマクロです．このマクロは無保証で提供，配布されます．このマクロを利用することで受けたすべての影響について使用者が責任を負うものとします．
+This is a small macro set to import .nor, .chik, .chir, .xmu files exportable from https://bruceravel.github.io/demeter/[Athena] into Igor Pro (Wavemetrics, USA).
 
-== ダウンロード
+= Download
 
-https://github.com/roentgenium/igorpro_xas_macros/releases からダウンロードしてください．
+Download from https://github.com/roentgenium/igorpro_xas_macros/releases.
 
-== 主な機能
+= Usage
 
-* Athena の出力ファイル形式である .nor, .chi, .chir ファイルを読み込む
+. Put the extracted XAFS directory into `%USERPROFILE%\Documents\WaveMetrics\Igor Pro 8 User Files\Igor Procedures`
+. Run Igor Pro.
+. You can find *XAFS* menu in the menu bar.
 
-== 使い方
+== XANES
 
-1. 展開してでてきたXAFSフォルダを `%USERPROFILE%\Documents\WaveMetrics\Igor Pro 8 User Files\Igor Procedures` にコピーして Igor Pro を起動してください．
-2. メニューバーに `XAFS` が現れます．
-
-=== XANES ファイルの読み込み
-
-`XAFS > Load Athena files > Load .nor file` をクリックすると，ファイル選択ウィンドウが出てきます．読み込みたい `.nor` ファイルを選択してください．読み込んだファイル名が `example.nor` の場合，
+. Point and click `XAFS > Load Athena files > Load .nor file` and select a `.nor` file to import.
+. if you chose `example.nor`,
 
 x_example::
-   XANES スペクトルの x 軸（X線のエネルギー）の値を含んだ一次元 wave
+   1D wave of energy points
 y_example::
-   バックグラウンド，規格化および「フラット化」が施された XANES スペクトルの y 軸（吸収強度）の値を含んだ一次元 wave
+   1D wave of flattened normalized absorption points
 
-の2つが読み込まれます．
+== EXAFS
 
-=== EXAFS ファイルの読み込み
-
-`XAFS > Load Athena files > Load .chik file` をクリックすると，ファイル選択ウィンドウが出てきます．読み込みたい `.chik` ファイルを選択してください．読み込んだファイル名が `example.chik` の場合，
+. Point and click `XAFS > Load Athena files > Load .chik file` and select a `.chik` file to import.
+. if you chose `example.chik`,
 
 x_ED_example::
-   抽出された EXAFS 振動の x軸（波数）の値を含んだ一次元 wave
+   1D wave of wavenumber points
 y_ED_example::
-   抽出された EXAFS 振動 (k3 の重み付き) の y軸（χ）の値を含んだ一次元 wave
-
-が読み込まれます．
+   1D wave of *k^3^-weighted* EXAFS oscillation
