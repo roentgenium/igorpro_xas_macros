@@ -36,4 +36,10 @@ Menu "XAFS"
 	
 	End
 
+	Submenu "Load FEFF files"
+	
+		"Load xmu file",/Q, LoadFEFFxmufile()
+	
+	End
+
 End
