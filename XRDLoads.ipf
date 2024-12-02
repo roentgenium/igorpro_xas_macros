@@ -6,15 +6,15 @@
 
 // XPSLoads: Igor Procedure for loading XRD data
 // Author: ASAKURA, Hiroyuki
-// Version: 0.1
-// Last Update: 2024-09-01
+// Version: 0.2
+// Last Update: 2024-11-24
 
 Function ExtractFilenameforBL5S2(filename)
 	String filename
-	String regExp="([[:digit:]]+)\-Run([[:digit:]]+)_([[:alnum:]]+)-([[:digit:]]+)-([[:graph:]]+)\.txt"
-	String/G timeString, run, name, iter, etc
+	String regExp="([[:digit:]]+)\-([[:graph:]]+)\.txt"
+	String/G timestamp, fname
 	
-	SplitString/E=regExp filename, timeString, run, name, iter, etc
+	SplitString/E=regExp filename, timestamp, fname
 End
 
 // Load data file at BL5S2, AichiSR (Single)
@@ -36,10 +36,10 @@ End
 
 Function AfterLoadingBL5S2File()
 	Wave twotheta, intensity, stddev
-	SVAR name, run, iter
-	Duplicate/O twotheta, $("x_"+name); KillWaves twotheta
-	Duplicate/O intensity, $("y_"+name+"_"+run+"_"+iter); KillWaves intensity
-	Duplicate/O stddev, $("d_"+name+"_"+run+"_"+iter); KillWaves stddev
+	SVAR fname
+	Duplicate/O twotheta, $("x_"+fname); KillWaves twotheta
+	Duplicate/O intensity, $("y_"+fname); KillWaves intensity
+	Duplicate/O stddev, $("d_"+fname); KillWaves stddev
 End
 
 // Load data file at BL5S2, AichiSR (Multiple)
